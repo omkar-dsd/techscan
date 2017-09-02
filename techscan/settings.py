@@ -25,12 +25,16 @@ SECRET_KEY = 'z0!x4t()+^!qbdy1380*^@)x#np8c16el%t5c$pgjncu)s7qx3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['techscan-cast.herokuapp.com']
+ALLOWED_HOSTS = ['techscan-cast.herokuapp.com', 'localhost']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'techlist.apps.TechlistConfig',
+    'userlist.apps.UserlistConfig',
+    'repolist.apps.RepolistConfig',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
