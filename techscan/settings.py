@@ -25,7 +25,7 @@ SECRET_KEY = 'z0!x4t()+^!qbdy1380*^@)x#np8c16el%t5c$pgjncu)s7qx3'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['techscan-cast.herokuapp.com']
 
 
 # Application definition
