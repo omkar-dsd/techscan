@@ -6,6 +6,7 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from rest_framework.renderers import JSONRenderer
 from rest_framework.parsers import JSONParser
 from userlist.models import Actor
+from repolist.models import Repo
 from userlist.serializers import ActorSerializer
 
 
@@ -15,10 +16,10 @@ def index(request, login):
     List all categorised repos.
     """
     actor = Actor.objects.get(login=login)
+    repo = Repo.objects.get(repo_id=actor.repo_id)
     resp = request.GET.get('json')
-    print(actor)
     if resp:
         serializer = ActorSerializer(actor, many=True)
         return JsonResponse(serializer.data, safe=False)
     else:
-        return render(request, 'userlist/main.html', {'data': actor})
+        return render(request, 'userlist/main.html', {'data': actor, 'repo': repo})

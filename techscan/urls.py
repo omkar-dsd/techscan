@@ -17,7 +17,7 @@ from django.conf.urls import url, include
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^techlist/', include('techlist.urls')),
+    url(r'^', include('techlist.urls')),
     url(r'^repo/', include('repolist.urls')),
     url(r'^user/', include('userlist.urls')),
     url(r'^admin/', admin.site.urls),

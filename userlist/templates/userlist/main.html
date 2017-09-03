@@ -13,7 +13,35 @@
         </div>
     </div>
     <div class="col-8">
-        
+        <div class="row">
+            <div class="col">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Followers</td>
+                            <td><span class="badge badge-secondary badge-pill pull-right">{{data.followers}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>Following</td>
+                            <td><span class="badge badge-secondary badge-pill pull-right">{{data.following}}</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"><a href="/user/{{repo.full_name}}">{{repo.full_name}}</a></h4>
+            <h6 class="card-subtitle mb-2 text-muted">{{repo.language}}</h6>
+            <p class="card-text">{{repo.description}}</p>
+          </div>
+        </div>
     </div>
 
 </div>
