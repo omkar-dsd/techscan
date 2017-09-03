@@ -1,0 +1,21 @@
+{% extends 'techlist/header.html' %}
+{% block body %}
+<br>
+<div class="row">
+    <div class="col-4">
+        <div class="card">
+            <img class="card-img-top" src="{{data.avatar_url}}" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title">{{data.name}}</h4>
+                <p class="card-text">{{data.login}}</p>
+                <p class="card-text">{{data.location}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-8">
+        
+    </div>
+
+</div>
+
+{% endblock %}

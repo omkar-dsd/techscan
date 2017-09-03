@@ -1,0 +1,21 @@
+{% extends 'techlist/header.html' %}
+{% block body %}
+{% for i in data %}
+<br>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title"><a href="/user/{{i.full_name}}">{{i.full_name}}</a></h4>
+    <h6 class="card-subtitle mb-2 text-muted">{{i.language}}</h6>
+    <p class="card-text">{{i.description}}</p>
+  </div>
+</div>
+{% endfor %}
+<br>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+      {% for i in paginate %}
+        <li class="page-item"><a class="page-link" href="/repo/list/{{lang}}?page={{i}}">{{i}}</a></li>
+        {% endfor %}
+  </ul>
+</nav>
+{% endblock %}

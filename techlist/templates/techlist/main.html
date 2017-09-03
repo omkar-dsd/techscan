@@ -1,0 +1,31 @@
+{% extends 'techlist/header.html' %} {% block body %}
+<br>
+<div class="row">
+    <div class="col-8">
+        {% for i in data %}
+        <div class="card">
+            <div class="card-body">
+                <h2><i class="devicon-{{i.language|lower}}-plain"></i>
+                    <a href="/repo/list/{{i.language}}">{{i.language}}</a></h4>
+            </div>
+        </div><br> {% endfor %}
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-body">
+                <p><b>Languages</b></p>
+                <table class="table">
+                    <tbody>
+                        {% for i in data %}
+                        <tr>
+                            <td>{{i.language}}</td>
+                            <td><span class="badge badge-secondary badge-pill pull-right">{{i.the_count}}</span></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
