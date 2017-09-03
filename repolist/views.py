@@ -14,6 +14,34 @@ def search(request):
     print (q)
     return HttpResponse(q)
 
+def sort_it(request, language):
+    s = request.GET.get('type')
+    repos_list = Repo.objects.filter(language__iexact=language)
+    if s == "most-star":
+        repos_list = repos_list.order_by('-stargazers_count')
+    elif s == "least-star":
+        repos_list = repos_list.order_by('stargazers_count')
+    elif s == "most-open":
+        repos_list = repos_list.order_by('-open_issues_count')
+    elif s == "most-fork":
+        repos_list = repos_list.order_by('-forks_count')
+    elif s == "least-fork":
+        repos_list = repos_list.order_by('forks_count')
+    paginator = Paginator(repos_list, 9)
+    page = request.GET.get('page')
+    resp = request.GET.get('json')
+    try:
+        repos = paginator.page(page)
+    except PageNotAnInteger:
+        repos = paginator.page(1)
+    except EmptyPage:
+        repos = paginator.page(paginator.num_pages)
+    if resp:
+        serializer = LanguageSerializer(repos, many=True)
+        return JsonResponse(serializer.data, safe=False)
+    else:
+        return render(request, 'repolist/main.html', {'data': repos, 'paginate' : range(paginator.num_pages), 'lang': language})
+
 @csrf_exempt
 def index(request, language):
     """

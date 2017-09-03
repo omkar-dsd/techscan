@@ -1,5 +1,22 @@
-{% extends 'techlist/header.html' %}
-{% block body %}
+{% extends 'techlist/header.html' %} {% block body %}<br>
+<div class="row">
+    <div class="col">
+        <h2>Repositories</h1></div>
+    <div class="col">
+<div class="btn-group" style="float:right;">
+  <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="/repo/sort/{{lang}}?type=most-star">Most Stars</a>
+    <a class="dropdown-item" href="/repo/sort/{{lang}}?type=least-star">Least Stars</a>
+    <a class="dropdown-item" href="/repo/sort/{{lang}}?type=most-open">Most Open Issues</a>
+    <a class="dropdown-item" href="/repo/sort/{{lang}}?type=most-fork">Most Forks</a>
+    <a class="dropdown-item" href="/repo/sort/{{lang}}?type=least-fork">Least Forks</a>
+  </div>
+</div>
+</div>
+</div>
 {% for i in data %}
 <br>
 <div class="card">
